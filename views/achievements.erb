@@ -1,23 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
   <head>
     <link href="/css/main.css" media="all" rel="stylesheet">
-    <title>Whitney's Blog</title>
+      <title>Whitney's Achievements</title>
   </head>
 
   <body>
-    <div class='nav-selector'>
-      <select name='navigation'>
-        <option value='about'>About Me</option>
-        <option value='blog'>Blog</option>
-        <option value='badges'>Achievements</option>
-        <option value='projects'>Projects</option>
-        <option value='picks'>Links & Picks</option>
-        <option value='feedback'>Feedback</option>
-        <option value='contact'>Contact Info</option>
-      </select>
-      <button>Go</button>
-    </div>
+    <form action="/processing" role="navigation" class='response'>
+      <div class='nav-selector'>
+        <label for="navigation">Navigation</label>
+        <select name='navigation'id="navigation">
+          <fieldset>
+            <optgroup>
+              <option value='about'>About Me</option>
+              <option value='blog'>Blog</option>
+              <option value='badges' selected>Achievements</option>
+              <option value='projects'>Projects</option>
+              <option value='picks'>Links & Picks</option>
+              <option value='feedback'>Feedback</option>
+              <option value='contact'>Contact Info</option>
+            </optgroup>
+            <input type="submit" name="submit" value="Go">       
+          </fieldset>
+        </select>
+      </div>
+    </form>
+
+  <div class='header'>
+    <h1>Whitney-Rose Levis</h1>
+  </div>
+  <div class='header'>
+    <h2>Achievements</h2>
+  </div>
+
+  <div class='container'>
+      <img src="/images/badges/sinatrafirst.gif" alt="15 point achievement unlocked created a sinatra site" class='response'>
+      <img src="/images/badges/htmlfirst.gif" alt="5 point achievement unlocked created an html page" class='response'>
+      <img src="/images/badges/cssfirst.gif" alt="5 point achievement unlocked created a css page" class='response'>
+      <img src="/images/badges/a11yfirst.gif" alt="15 point achievement unlocked created alt text for images" class='response'>
+    
+  </div>
  <!-- end of container -->
+ <div class='container' role='credits'>
+    <div class='footer'>Site Design and Development by: Whitney-Rose Levis</div>
+    <div class='footer'>Blue Bubbles photo by: Tim Fields</div>
+  </div>
   </body>
 </html>

@@ -1,5 +1,5 @@
 body {
-  background: url(http://images.cdn.fotopedia.com/flickr-8082970826-original.jpg);
+  background: url(/images/bubblebackground.jpg);
 }
 
 .nav-selector {
@@ -29,19 +29,46 @@ h3 {
   font-size: 1.5em;
 }
 
+h4 {
+  text-align: center;
+  font-size: 1.25em;
+}
+
 .container {
   margin-left: 20%;
   margin-right: 20%;
+  margin-bottom: 15px;
   border: 5px dotted black;
   padding-bottom: 10px;
+  padding-top: 10px;
   background-color: #2674F0;
   opacity: 0.87;
+  text-align: center;
+  overflow: scroll;
 }
 
 .response {
+  margin-top: 4px;
   margin-left: 3%;
   margin-right: 2%;
   padding: 5px;
   border: 3px solid black;
   background-color: #26D5F0;
+  text-align: left;
+}
+
+form.response {
+  width: 255px;
+}
+
+
+.footer {
+  text-align: center;
+  margin-left: 3%;
+  margin-right: 2%;
+  margin-top: 10px;
+  padding: 5px;
+  border: 3px solid black;
+  background-color: #26D5F0;
+  font-variant: small-caps;
 }

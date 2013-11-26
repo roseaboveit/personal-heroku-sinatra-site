@@ -1,24 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
   <head>
     <link href="/css/main.css" media="all" rel="stylesheet">
     <title>Whitney's Blog</title>
   </head>
 
   <body>
-    <div class='nav-selector'>
-      <select name='navigation'>
-        <option value='about'>About Me</option>
-        <option value='blog'>Blog</option>
-        <option value='badges'>Achievements</option>
-        <option value='projects'>Projects</option>
-        <option value='picks'>Links & Picks</option>
-        <option value='feedback'>Feedback</option>
-        <option value='contact'>Contact Info</option>
-      </select>
-    </div>
+    <form action="/processing" role="navigation" class='response'>
+      <div class='nav-selector'>
+        <label for="navigation">Navigation</label>
+          <select name='navigation'id="navigation">
+            <fieldset>
+              <optgroup>
+                <option value='about'>About Me</option>
+                <option value='blog' selected>Blog</option>
+                <option value='badges'>Achievements</option>
+                <option value='projects'>Projects</option>
+                <option value='picks'>Links & Picks</option>
+                <option value='feedback'>Feedback</option>
+                <option value='contact'>Contact Info</option>
+              </optgroup>
+              <input type="submit" name="submit" value="Go">       
+            </fieldset>
+          </select>
+        </div>
+  </form>
 
-    <div class='header'>
+  <div class='header'>
     <h1>Whitney's Blog</h1>
   </div>
   <div class='header'>
@@ -29,5 +37,9 @@
     <h3>Sample Blog Title</h3>
     <div class='response'>Content of the blog goes here.</div>
   </div> <!-- end of container -->
+  <div class='container' role='credits'>
+    <div class='footer'>Site Design and Development by: Whitney-Rose Levis</div>
+    <div class='footer'>Blue Bubbles photo by: Tim Fields</div>
+  </div>
   </body>
 </html>

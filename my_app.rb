@@ -14,7 +14,7 @@ class MyApp < Sinatra::Base
     erb :blog
   end
 
-  get '/achievements' do
+  get '/badges' do
     erb :achievements
   end
 
@@ -32,6 +32,10 @@ class MyApp < Sinatra::Base
 
   get '/contact' do
     erb :contact
+  end
+
+  get '/processing' do
+   redirect "/#{params[:navigation]}"
   end
 
 end
