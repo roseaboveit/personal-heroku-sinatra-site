@@ -22,15 +22,15 @@ class MyApp < Sinatra::Base
     erb :projects
   end
 
-  get 'picks' do
+  get '/picks' do
     erb :picks
   end
 
-  get 'feedback' do
+  get '/feedback' do
     erb :feedback
   end
 
-  get 'contact' do
+  get '/contact' do
     erb :contact
   end
 
