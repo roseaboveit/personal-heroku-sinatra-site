@@ -1,7 +1,7 @@
 <div class='list'>   
-
-  <% @posts.each do |post| %>
-    <h4><a href="/blog/<%= post %>"><%= post %></a></h4>  
-  <% end %>
-
+  <ul>
+    <% @sorted_posts.each do |post, date_array| %>
+      <li><h4><a href="/blog/<%= post %>"><%= post %></a></h4>  
+    <% end %>
+</ul>
 </div>
