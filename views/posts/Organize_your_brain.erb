@@ -1,0 +1,59 @@
+date: 2013-12-15
+
+<h3>Organize Your Brain: Starting Rails</h3>
+<h3>Technical Blog Post #1</h3>
+<div class="response">
+  <p>I'm learning with programming and Rails in particular that there are a variety of perspectives to consider while programming. It can be hard to really notice where you are in the scope scale.</p>
+  <h5>Scales of thinking in Rails</h5>
+  <ul>
+    <li>Big Picture: The Website in all its glory</li>
+    <li>How the website looks</li>
+    <li>How the website works</li>
+    <li>How the routes, controllers, views, models, and other pieces work together</li>
+    <li>How a folder of things in the program works</li>
+    <li>How a particular file (usually class) works</li>
+    <li>How methods work and interact</li>
+    <li>How logic pieces work in a method</li>
+    <li>Local syntax concerns</li>
+    <li>Variable names</li>
+  </ul>
+  <p>This is just kinda how I see it from big picture to nuts & bolts. Perhaps you see it differently.</p>
+  <p>In any case I think that many technical blogs are in those later levels, those nuts & bolts issues. Which is good because those are usually the things that get me so stuck that I can't find my way out. Sometimes though there is a challenge at a higher level and the paralysis feels different. It can cause people to be stuck before they even start.</p>
+  <p>I want to talk about how the routes, controllers, views, models, and other pieces work together. It is a big topic so I'm going to try to break it down into problems I'm having. A lot of times I still struggle with where to go to find particular pieces I need. It seems like a simple enough thing</p>
+  <p>The request goes to the routes which then goes to a particular method in a particular controller. In running that code it might look to other methods or models to get the information it needs to do its job. The controller then sends that information to the appropriate view. The view can then use any of that information in its html and erb to send the page back to the user as a response to the request.</p>
+  <p>All of this makes sense when you stop and think about it. When you are in this scope scale of planning and thinking about how these things work there is an elegant logic to it that is quite beautiful. The trick comes in remembering how this works when you are at a different scope. While working in a particular controller you are focused in on that piece and how it works. I find it to be easier to become more myopic than to scale back out and remember the full range of scopes. To remember that even though you're working on a particular piece of logic in a particular method of a particular controller in the controllers folder, perhaps what you are struggling with is something that should be in the model.</p>
+  <p>Perhaps this is not what was meant by encouraging us to write a technical blog post. I think that's okay though. I think that it will help me in a technical way to refer back so I think it will count enough for my purposes. I think it can also help others. Additionally this is a post that I can add to. It seems likely that this will continue to be a challenge for me and so as I run into issues I can add them to this post.</p>
+  <h5>Where is the problem? A diagnostic approach</h5>
+  <h6>The config/routes.rb file</h6>
+    <p>Your problem could be here if:</p>
+    <ul>
+      <li>A "path" or "route" is undefined.</li>
+      <li>You end up on a completely different page than you expected.</li>
+      <li>You get an error saying the method is undefined when you're sure your controller is good.</li>
+      <li>Submitting a form says that post isn't defined.</li>
+    </ul>
+  <h6>A controller file</h6>
+    <p>Your problem could be here if:</p>
+    <ul>
+      <li>You get an error saying the method is undefined when you're sure your routes are how you want them.</li>
+      <li>You get an Undefined variables error.</li>
+      <li>You get an unexpected keyword end, or an expected keyword end.</li>
+      <li>You get an error stating that you can't perform that method on the Nilclass.</li>
+    </ul>
+  <h6>A method file</h6>
+  <p>Your problem could be here if:</p>
+    <ul>
+      <li>How particular objects in your program work but not as expected.</li>
+      <li>You get an Undefined variables error.</li>
+      <li>You get an unexpected keyword end, or an expected keyword end.</li>
+    </ul>
+  <h6>A view file</h6>
+  <p>Your problem could be here if:</p>
+    <ul>
+      <li>If the website error says that it is missing a template.</li>
+      <li>If you are expecting to see something and it isn't present but doesn't break.</li>
+      <li>You get an undefined variables error.</li>
+    </ul>
+
+  <p>Warning: This is an early look at these issues and may not be accurate. If you think anything I have stated is incorrect feel free to submit a <a href="https://github.com/roseaboveit/personal-heroku-sinatra-site/tree/master/views/posts">pull request</a> for this blog post and I will acknowledge you in this footnotey area.</p>
+</div>
