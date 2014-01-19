@@ -1,1 +1,34 @@
-date: 2013-11-02
+date: 2014
+
+<h3>Rails Routes for Beginners</h3>
+<h3>Technical Blog Post #3</h3>
+<div class="response">-1-19
+  <p>In Week 9 I learned a lot about Rails but in particular I learned a lot about routes. Something finally clicked and it all seemed so obvious. One of the issues that I have with technical blog posts at the moment is that I assume that what I have to share couldn't possibly be of help to anyone. This is the first topic that I don't feel that way about. I had a twitter conversation about it, helped people in class, and even taught some people at the Railsbridge Alum meetup at NIRD. I was encouraged by classmates to write a post about it so here we go.</p>
+
+  <h4>Where are the routes? What do they do?</h4>
+  <p>If you open up a rails application you will find the routes in the config folder. The file you are looking for is titled routes.rb. This file manages how you get from the user to the right controllers and views. It looks at the url and matches it with a controller and an action. Additionally it can do so whether this route is passed in from your program itself or from the browser.</p>
+
+  <h4>What are resources?</h4>
+  <p>If you are looking back on a project you've done through Railsbridge or another tutorial, you might notice that there isn't much there other than something called resources. This is one of the pieces of rails magic that saves time, space, and confusion for many people. We're going to start peeling back this magic though. In short, resources is a quick and easy way to generate restful routes.</p>
+
+  <h4>What are restful routes?</h4>
+  <p>REST stands for Representational State Transfer. There is a lot that goes into that and but most of it is outside the scope of this blog post. What IS in the scope of this blog post is where REST intersects with CRUD.</p>
+
+  <h4>Okay then, what is CRUD?</h4>
+  <p>CRUD is an acronym to think about when dealing with HTTP requests and routing in general. It stands for Create, Read, Update, Delete. If you stop and think about it that is pretty much all we do when we make websites. We want to create things, be able to see them and show them to others, change them when necessary, and get rid of them when we want to. It pretty much sums it up.</p>
+
+  <h4>What does this have to do with routes?</h4>
+  <p>Everything! Routes are what the program uses to direct user requests into meaningful display and change in the program. CRUD is all about displaying and changing things in the program. So it makes sense that if our routes are RESTful, providing for all our CRUD needs in a sensible way, they will be in pretty good shape.</p>
+  <p>To get started with understanding routes, let's take a look at what exists under the hood. Although the RESTful routes are currently hidden under the magic of resources there is still a way to get at them and see all the routes it is generating. In a terminal navigate to a rails project you have and type: rake routes</p> 
+  <p>You should get something similar to this:</p>
+  <p>
+  users     GET    /users(.:format)                users#index
+            POST   /users(.:format)                users#create
+  new_user  GET    /users/new(.:format)            users#new
+  edit_user GET    /users/:id/edit(.:format)       users#edit
+  user      GET    /users/:id(.:format)            users#show
+            PATCH  /users/:id(.:format)            users#update
+            PUT    /users/:id(.:format)            users#update
+            DELETE /users/:id(.:format)            users#destroy
+  </p>
+</div>
