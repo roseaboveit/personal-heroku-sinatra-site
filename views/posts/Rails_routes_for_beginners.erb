@@ -2,7 +2,7 @@ date: 2014-1-19
 
 <h3>Rails Routes for Beginners</h3>
 <h3>Technical Blog Post #3</h3>
-<div class="response">-1-19
+<div class="response">
   <p>In Week 9 I learned a lot about Rails but in particular I learned a lot about routes. Something finally clicked and it all seemed so obvious. One of the issues that I have with technical blog posts at the moment is that I assume that what I have to share couldn't possibly be of help to anyone. This is the first topic that I don't feel that way about. I had a twitter conversation about it, helped people in class, and even taught some people at the Railsbridge Alum meetup at NIRD. I was encouraged by classmates to write a post about it so here we go.</p>
 
   <h4>Where are the routes? What do they do?</h4>
@@ -22,13 +22,13 @@ date: 2014-1-19
   <p>To get started with understanding routes, let's take a look at what exists under the hood. Although the RESTful routes are currently hidden under the magic of resources there is still a way to get at them and see all the routes it is generating. In a terminal navigate to a rails project you have and type: rake routes</p> 
   <p>You should get something similar to this:</p>
   <p>
-  users     GET    /users(.:format)                users#index
-            POST   /users(.:format)                users#create
-  new_user  GET    /users/new(.:format)            users#new
-  edit_user GET    /users/:id/edit(.:format)       users#edit
-  user      GET    /users/:id(.:format)            users#show
-            PATCH  /users/:id(.:format)            users#update
-            PUT    /users/:id(.:format)            users#update
-            DELETE /users/:id(.:format)            users#destroy
+  <div>  users     GET    /users(.:format)                users#index</div>
+  <div>            POST   /users(.:format)                users#create</div>
+  <div>  new_user  GET    /users/new(.:format)            users#new</div>
+  <div>  edit_user GET    /users/:id/edit(.:format)       users#edit</div>
+  <div>  user      GET    /users/:id(.:format)            users#show</div>
+  <div>            PATCH  /users/:id(.:format)            users#update</div>
+  <div>            PUT    /users/:id(.:format)            users#update</div>
+  <div>            DELETE /users/:id(.:format)            users#destroy</div>
   </p>
 </div>
