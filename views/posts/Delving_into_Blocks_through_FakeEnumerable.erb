@@ -1,0 +1,139 @@
+date: 2014-3-20
+
+<h3>Delving into Blocks through FakeEnumerable</h3>
+<div class="response">
+  <p>This week was for self-directed learning. It involved some great lectures on a variety of topics. One such topic was delving into how blocks really work. <a href="https://twitter.com/kerrizor">Kerri</a> provided some great <a href="https://github.com/Ada-Developers-Academy/daily-curriculum/blob/master/week20/monday/ruby_blocks.md">notes</a> on the topic including links for extension which I decided to look into further. The most interesting exercise was from the Practicing Ruby blog, <a href="https://practicingruby.com/articles/building-enumerable-and-enumerator">Building Enumerable and Enumerator in Ruby</a>.</p>
+
+  <p>This challenge chose some methods from the Enumerable module and the Enumerator class, wrote tests to check novel implementation and then attempted to implement them with Ruby. I followed the blog and started by setting up the test suite. If you would like to follow along you can check out my <a href="https://github.com/roseaboveit/FakeEnumerable">GitHub repo</a>. I started off by breaking things up so that the test suites for each were in their own files and setting up the directory with other files it needed to get the tests to fail instead of returning errors. Since I put everything in their own files I needed some extra include and require statements.</p>
+
+  <h4>Side Note About Minitest</h4>
+  <p>The blog chose to use Minitest to write the specifications in. This was new for me but I must say that I enjoy it as a testing framework. It was easy for me to read and easy to run. I also like RSpec but Minitest did seem to be more akin to standard Ruby. I look forward to comparing the two more rigorously in the future. At this point I'm curious as to whether the benefits of RSpec might be outweighed by the additional work of learning the syntax of the RSpec DSL.</p>
+
+  <h4>Jumping into FakeEnumerable</h4>
+  <h4>Map</h4>
+  <p>It had been a while since I had perused the core Ruby methods so I decided a good place to start was a review of the <a href="http://www.ruby-doc.org/core-2.1.1/Enumerable.html#method-i-map">definition</a>. Specifically: "Returns a new array with the results of running block once for every element in enum." This definition provides a roadmap of where to go. It needs to initialize an array at the beginning. It needs to run the block on each element of the original set, putting the resulting values into the array. Finally it needs to return that array. That's exactly what we did.</p>
+  
+  <pre><code>
+    def map
+      new_array = []
+        each do |e|
+          new_array << yield(e)
+        end
+      new_array
+    end
+  </code></pre>
+
+  <h4>Select</h4>
+
+  <p>I approached the select method much the same way. I looked at the <a href="http://www.ruby-doc.org/core-2.1.1/Enumerable.html#method-i-select">definition</a>: "Returns an array containing all elements of enum for which the given block returns a true value." This definition also provides a roadmap. It returns a result array that is filled with elements, but only those that return true when run through the block. This means there will be a conditional, the results of which will determine which elements go into the result array.</p>
+
+  <pre><code>
+    def select
+      new_array = []
+        each do |e|
+          if yield(e)
+            new_array << e
+          end
+        end
+      new_array
+    end
+  </code></pre>
+
+  <h4>Sort_by</h4>
+
+  <p>This is where things started to get particularly challenging. Looking at the <a href="http://www.ruby-doc.org/core-2.1.1/Enumerable.html#method-i-sort_by">definition</a> for sort_by involved a lot more digging behind the scenes as it is much more involved. My delving resulted in a wikipedia trip to learn about the <a href="http://en.wikipedia.org/wiki/Schwartzian_transform">Schwartzian transform</a>. The more I thought about it the more it made sense. I first needed to collect the elements and their results into a storage array. Then I needed to sort that array. Finally I needed to collect the original elements into the final array but in the order of the sorted storage array. So I started by blocking out the steps with comments.</p>
+
+  <pre><code>
+    def sort_by
+      new_array = []
+      storage_array = []
+
+      #collect
+
+      #sort
+
+      #collect
+
+      new_array
+    end
+  </code></pre>
+
+  <p>Then finally, all I had to do was fill in the parts of the method. The initial collection, the sorting, and finally recollecting the results.</p>
+
+  <pre><code>
+    def sort_by
+      new_array = []
+      storage_array = []
+
+      #collect
+      each do |e|
+        storage_array << [yield(e), e]
+      end
+
+      #sort
+      storage_array.sort!
+
+      #collect
+      storage_array.each do |toss, element|
+        new_array << element
+      end
+
+      new_array
+    end
+  </code></pre>
+
+  <h4>Reduce</h4>
+
+  <p>The reduce method was also a bit challenging, mostly because there are a variety of forms that the method can take as inputs. Checking the <a href="http://www.ruby-doc.org/core-2.1.1/Enumerable.html#method-i-reduce">definition</a> to keep track of everything we see four different options but it really comes down to two different aspects. Either there is an initial value given or there isn't, and either reduce takes a symbol or a block.</p>
+
+  <p>In the case where there is no initial value given and it is passed a block, there are no parameters passed into the method. Thus the method must be set up with the parameters as optional.</p>
+
+  <pre><code>
+    def reduce(parameters = nil)
+    
+    end
+  </code></pre>
+
+  <p>From there we need to break down all of the various options. If a symbol is passed in then we are just going to turn it into a relevant block and call the method again. Otherwise we just look to set the initial variable if one is given.</p>
+
+  <pre><code>
+    def reduce(parameters = nil)
+      case parameters
+    
+      when Symbol #turn it into a block and send it back.
+        return reduce { |operation, element| operation.send(parameters, element) }
+      when nil #no specified initial incrementer so we'll take the first value
+        total = nil
+      else #This is the initial value.
+        total = parameters
+      end
+    end
+  </code></pre>
+
+  <p>And finally we actually do the work of looping through performing the operation and returning the result.</p>
+
+  <pre><code>
+    def reduce(parameters = nil)
+      case parameters
+    
+      when Symbol #turn it into a block and send it back.
+        return reduce { |operation, element| operation.send(parameters, element) }
+      when nil #no specified initial incrementer so we'll take the first value
+        total = nil
+      else #This is the initial value.
+        total = parameters
+      end
+
+      # Actual Work Being Done
+      each do |x|
+        if total.nil?
+          total = x
+        else
+          total = yield(total, x)
+        end
+      end
+
+      total
+    end
+  </code></pre>
+</div>
