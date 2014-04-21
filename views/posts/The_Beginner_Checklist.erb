@@ -1,4 +1,4 @@
-date: 2014-3-30
+date: 2014-4-12
 
 <h3>The Beginner Checklist</h3>
 <h3>What to do when you are banging your head against the wall but aren't ready to ask for help...</h3>
@@ -8,10 +8,14 @@ date: 2014-3-30
   <ul>
     <li><strong>Read the Error</strong></li>
     <p>This seems really obvious. The truth is though that sometimes we get so used to seeing the same error that we don't notice the subtle differences. Sometimes it may be a different spec that is failing than we think. Sometimes in all that computer garbage there are some words we can pick out to give us a clue as to where our error is. To check off this option, just read the error message, even if you don't understand it and try to pick out pieces that might give you some insight into the problem.</p>
+    <li><strong>Read the Logs</strong></li>
+    <p>The error that you initially get in your browser or elsewhere may give you very different information than the errors that you get in your logs. If you are running locally, you can look at the terminal window where you started your server and you will see the details of what your local server has done. In there you will find any problems that it came across. If the problem is happening in production you need to go to those logs which might be trickier to find. On Heroku it is fairly easy. In your terminal type <pre><code>heroku logs</code></pre> and there you should find all the same sort of information.</p>
     <li><strong>Google the Error</strong></li>
     <p>This also seems really obvious. Sometimes when we are developing though, we can get tunnel vision and forget that others have had these problems before. Many of these problems we run into are solved problems that others have struggled with before us. Internet research is its own skill that takes time to develop. Understanding the results you get might also be beyond your current skill set. To check off this option, try a few different ways to research your problem online. Try framing it in the form of a question. Try using the key words of the problem. Try making your search more specific.</p>
     <li><strong>Restart Everything</strong></li>
     <p>Naturally with this one you should start with restarting the things that are most likely to be the problem. Restarting your server is an important one that often gets forgotten. Other candidates for restarting are your console, IRB, the terminal itself, and if all else fails your whole computer. Rarely is it that extreme of an issue. Nothing feels sillier though than asking for help and having someone remind you to restart your server and the problem being solved.</p>
+    <li><strong>Talk to the Duck</strong></li>
+    <p>In programming there is this concept called "rubber ducking." It explains the phenomenon of finding the answer on your own simply by explaining the problem to someone else. It is something that a lot of beginners are concerned about and why we don't ask for help when we should. We know it is going to be something small and so we want to figure it out ourselves. The benefit of an actual rubber duck though is that it is never disappointed and makes no judgments. Tell the duck your problems before you tell a human and you may surprise yourself with what you can figure out when you put it out there verbally.</p>
     <li><strong>Use a Debugging Strategy</strong></li>
     <p>Depending on what you are working on, there is probably a debugging strategy that is best for you to use. It might be raising an error to check on the state of variables. It might be using a debugger in for a javascript console. It might be putting in print statements to see what things look like in the logs. Any of these tactics can help you get a sense of where in your program things are going awry.</p>
     <li><strong>Play in the Console or IRB</strong></li>
