@@ -6,12 +6,25 @@
   </head>
 
   <body>
+
+  <!-- Alternate Menu Bar *In Progress?*
+  <div id='menuBar'>
+      <ul id='nav-test'>
+        <li class='navLink'>Menu</li>
+        <li class='navLink'><a class='navLink' href="/about">About Me</a></li>
+        <li class='navLink'><a class='navLink' href="/blog">Blog</a></li>
+        <li class='navLink'><a class='navLink' href="/picks">Links & Picks</a></li>
+        <li class='navLink'><a class='navLink' href="/contact">Contact Info</a></li>
+      </ul>
+    </div>
+  -->
+    
     <!-- Navigation Dropdown-->
-    <form action="/processing" role="navigation" class='response'>
+    <form action="/processing" role="navigation" >
       <div class='nav-selector'>
         <label for="navigation">Navigation</label>
         <select name='navigation' id="navigation">
-          <optgroup label="navigation">
+          <optgroup label="Select A Destination">
             <option value='about' selected>About Me</option>
             <option value='blog'>Blog</option>
             <!-- <option value='badges'>Achievements</option>
@@ -29,12 +42,13 @@
       <h1>Whitney-Rose Levis</h1>
     </div>
 
-    <div class='header'>
-      <h2>Ever Developing Developer</h2>
+    <div class='titleHeader'>
+      <p id='title'>Whitney-Rose Levis</p>
+      <p id='subTitle'>Ever Developing Developer</p>
     </div>
 
     <div class='container'>
-    <%= yield %><!-- This will inject all the content from individual pages -->
+      <%= yield %> <!-- This will inject all the content from individual pages -->
     </div>
     
     <!-- Credits Footer -->
