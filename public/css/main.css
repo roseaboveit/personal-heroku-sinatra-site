@@ -5,8 +5,7 @@ body {
   font-family: Garamond, Georgia, serif;
 }
 
-
-/*Alternate Menu Bar 
+/*Alternate Menu Bar
 #menuBar {
   margin: 0;
   padding: 0;
@@ -46,7 +45,7 @@ body {
   border-style: solid;
   border-width: 1px;
   border-color: black;
-  } 
+}
 
 .nav-selector {
   position: fixed;
@@ -60,6 +59,7 @@ body {
   text-align: left;
   z-index: 3;
   top: 5.4em;
+  cursor: default;
 }
 
 .header {
@@ -78,7 +78,8 @@ body {
   margin: 0;
   padding: 0;
   left: 0;
-} 
+  cursor: default;
+}
 
 #title {
     color: #2674F0;
@@ -89,7 +90,7 @@ body {
 }
 
 #subTitle {
-  color: #26D5F0;  
+  color: #26D5F0;
   font-size: 2em;
   text-align: center;
   margin: 0;
@@ -112,7 +113,6 @@ h4 {
   font-size: 1.25em;
 }
 
-
 .container {
   margin-left: 20%;
   margin-right: 20%;
@@ -124,6 +124,7 @@ h4 {
   opacity: 0.87;
   text-align: center;
   overflow: auto;
+  cursor: default;
 }
 
 .response {
